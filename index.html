@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="img/JS horizontal.png" type="image/x-icon">
+    <script defer src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script defer src="main.js"></script>
+    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Japan Store</title>
+</head>
+
+<body>
+    <div id="modal" style="display: none;">
+        <div class="content">
+            <button id="close"><i class='bx bx-x-circle'></i></button>
+            <div class="title" id="modalTitle">Descrição</div>
+            <div class="body">
+                <div>
+                    <b>Descrição:</b>
+                    <span id="modalDescription"></span>
+                </div>
+                <div>
+                    <b>Preço:</b>
+                    <span id="modalPrice"></span>
+                </div>
+                <div>
+                    <b>Categoria:</b>
+                    <span id="modalCategory"></span>
+                </div>
+                <div>
+                    <b>Avaliação:</b>
+                    <span id="modalRate"></span>
+                </div>
+                <div>
+                    <b>Total:</b>
+                    <span id="modalCount"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalUser" style="display: none;">
+
+        <div class="content">
+            <button id="closeU"><i class='bx bx-x-circle'></i></button>
+            <div class="title">Olá Usuário</div>
+            <div class="body">
+                <p><b> Nome: </b> Leonardo Nakamura</p>
+                <p><b> Idade: </b> 26 anos</p>
+                <p><b> Email: </b> leonardonaka75@gmail.com</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="modalShop" style="display: none;">
+        <div class="content">
+            <button id="closeS"><i class='bx bx-x-circle'></i></button>
+            <div class="title">Meu Carrinho</div>
+            <div class="body">
+                No carrinho:
+            </div>
+        </div>
+    </div>
+
+    <div class="top">
+        <nav>
+            <a href="#" class="logo"> <img src="img/JS horizontal.png" alt="logo da loja"></a>
+            <div class="icons">
+                <ul>
+                    <li>
+                        <div id="campo" class="search">
+                            <input type="text" id="search" style="display: none;" placeholder="Procure aqui ...">
+                            <span class="icon">
+                                <i id="searchIcon" class='bx bx-search-alt'></i>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <a id="user"> <i class='bx bx-user icon'></i> </a>
+                    </li>
+                    <li>
+                        <a id="shop"> <i class='bx bx-cart-alt'></i> </a>
+                    </li>
+                </ul>
+                <div class="toggle-btn" id="btn">
+                    <span id="Dark"> Dark </span>
+                    <img src="img/moon.png" id="DarkImage" alt="lua/dark mode">
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="container">
+        <div class="container">
+            <button class="filter-button" onclick="filterProducts('all')">Todos</button>
+            <button class="filter-button" onclick="filterProducts('electronics')">Eletrônicos</button>
+            <button class="filter-button" onclick="filterProducts('jewelery')">Joias</button>
+            <button class="filter-button" onclick="filterProducts('men')">Roupas Masculinas</button>
+            <button class="filter-button" onclick="filterProducts('women')">Roupas Femininas</button>
+            <button class="filter-button" onclick="sortProducts('asc')">Preço Baixo para Alto</button>
+            <button class="filter-button" onclick="sortProducts('desc')">Preço Alto para Baixo</button>
+            <div class="select">
+                <label for="totalPage">Quantidade de itens:</label><br><br>
+                <select name="totalPage" id="totalPage">
+                    <option value="30">30</option>
+                    <option value="20">20</option>
+                    <option value="10">10</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="produtos-site">
+        <div id="productList"></div>
+        <div id="details" style="display: none;">
+            <button id="backButton"><i class='bx bx-arrow-back'> Voltar </i></button>
+            <div class="containerDetail">
+                <div class="sides">
+                    <div class="left-side">
+                        <div class="img-grade">
+                            <img id="image" alt="produtoJS">
+                        </div>
+                    </div>
+                    <div class="right-side">
+                        <div class="tittle-category">
+                            <div class="tittle-enter" id="title"></div>
+                            <a href="#" class="category-enter" id="category"></a>
+                        </div>
+                        <div id="rating">
+                            <div class="rateDiv">
+                                <i class='bx bxs-star' id="starIcon"></i>
+                                <div class="rate-enter" id="rate"></div>
+                            </div>
+
+                            <div class="countDiv">
+                                <i class='bx bxs-user-plus' id="userIcon"></i>
+                                <div class="count-enter" id="count"></div>
+                            </div>
+                        </div>
+                        <div class="description-enter" ><b>Descrição: </b><span id="description"></span></div>
+                        <div class="price-enter">
+                            $<span id="price"></span>
+                        </div>
+                        <div class="buttons">
+                            <button id="menos">-</button>
+                            <input type="text" value="0" id="cont">
+                            <button id="mais">+</button>
+                            <button id="comprar">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <header>
+          <h2>Japan Store</h2>
+          <p>"Lojinha do japonês vendemos de tudo no melhor possível"</p>
+          <ul class='icons'>
+            <ion-icon class='icon' name="logo-facebook"></ion-icon>
+            <ion-icon class='icon' name="logo-instagram"></ion-icon>
+            <ion-icon class='icon' name="logo-twitter"></ion-icon>
+            <ion-icon class='icon' name="logo-youtube"></ion-icon>
+          </ul>
+        </header>
+        <aside>
+          <ul class='category'>
+            <li>
+              <h3>Produtos</h3>
+            </li>
+            <li>Eletrônicos</li>
+            <li>Joias</li>
+            <li>Roupas Masculinas</li>
+            <li>Roupas Femininas</li>
+          </ul>
+          <ul class='category'>
+            <li>
+              <h3>Companhia</h3>
+            </li>
+            <li>Objetivo</li>
+            <li>Capital</li>
+            <li>Segurança</li>
+            <li>Vendas</li>
+          </ul>
+          <ul class='category'>
+            <li>
+              <h3>Atividades</h3>
+            </li>
+            <li>Vendas</li>
+            <li>Suporte</li>
+            <li>Reembolso</li>
+            <li>Pesquisa</li>
+          </ul>
+          <ul class='category'>
+            <li>
+              <h3>Ajuda</h3>
+            </li>
+            <li>Privacidade</li>
+            <li>Contato</li>
+            <li>FAQs</li>
+            <li>Blog</li>
+          </ul>
+        </aside>
+      </footer>
+</body>
+
+</html>

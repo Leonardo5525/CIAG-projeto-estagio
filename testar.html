@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+    <title>Lista de Produtos</title>
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.product {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+}
+
+.product img {
+    object-fit: contain;
+    width: 100%;
+    max-height: 10rem;
+}
+
+.filter-button {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#productList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (max-width:900px) {
+    #productList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width:700px) {
+    #productList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width:600px) {
+    #productList {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+    </style>
+    <input id="searchbar" type="search">
+
+    <div class="container" id="container">
+        <h1>Lista de Produtos</h1>
+        <button class="filter-button" onclick="filterProducts('all')">Todos</button>
+        <button class="filter-button" onclick="filterProducts('electronics')">Eletrônicos</button>
+        <button class="filter-button" onclick="filterProducts('jewelery')">Joias</button>
+        <button class="filter-button" onclick="filterProducts('men')">Roupas Masculinas</button>
+        <button class="filter-button" onclick="filterProducts('women')">Roupas Femininas</button>
+        <button class="filter-button" onclick="sortProducts('asc')">Preço Baixo para Alto</button>
+        <button class="filter-button" onclick="sortProducts('desc')">Preço Alto para Baixo</button>
+    </div>
+
+    <div id="productList"></div>
+    <div id="details" style="display: none">
+        <button id="backButton">Voltar</button>
+        <div class="tittle-enter" id="title"></div>
+        <div class="price-enter" id="price"></div>
+        <div class="category-enter" id="category"></div>
+        <div class="description-enter" id="description"></div>
+        <div class="rate-enter" id="rate"></div>
+        <div class="count-enter" id="count"></div>
+        <img id="image">
+    </div>
+</body>
+</html>

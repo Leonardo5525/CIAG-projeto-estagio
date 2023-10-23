@@ -1,0 +1,182 @@
+@import 'modal.css';
+
+
+:root{
+    --webkit-box-shadow-produto: 0px 11px 20px 1px rgba(0,0,0,0.75);
+    --moz-box-shadow-produto: 0px 11px 20px 1px rgba(0,0,0,0.75);
+    --box-shadow-produto: 0px 11px 20px 1px rgba(0,0,0,0.75);
+    --border-backbutton: black;
+}
+
+.Dark-theme{
+    --webkit-box-shadow-produto: 0px 11px 20px 1px rgba(255,255,255,1);
+    --moz-box-shadow-produto: 0px 11px 20px 1px rgba(255,255,255,1);
+    --box-shadow-produto: 0px 11px 20px 1px rgba(255,255,255,1);
+    --border-backbutton: white;
+}
+
+.produtos-site{
+    padding: 20px;
+
+    & #backButton{
+        font-size: 1em;
+        font-weight: bolder;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        width: 5em;
+        border-radius: 30px;
+        margin: 10px;
+        border: 2px solid var(--border-backbutton);
+        
+    }
+}
+
+.containerDetail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sides{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: space-between;
+    width: 70%;
+
+    & .right-side{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: solid 1px none;
+        border-radius: 10px;
+        height: 38em;
+        width: 25em;
+        padding: 10px 20px 20px 10px; 
+        -webkit-box-shadow-produto: var(--webkit-box-shadow-produto) ;
+        -moz-box-shadow-produto: var(--moz-box-shadow-produto); 
+        box-shadow: var(--box-shadow-produto);
+
+        & .tittle-enter{
+            font-weight: bolder;
+            font-size: xx-large;
+            color: var(--text-color);
+        }
+
+        & .category-enter{
+            font-weight: 500;
+        }
+
+        & #rating{
+            display: flex;
+            justify-content: center;
+            justify-content: space-evenly;
+
+            & #starIcon{
+                color: rgb(243, 201, 15);
+                font-size: xx-large;
+            }
+
+            & .rate-enter{
+                display: inline-block;
+                font-size: x-large;
+                font-weight: bolder;
+                margin-left: 5px;
+            }
+
+            & #userIcon{
+                display: inline-block;
+                font-size: xx-large;
+                color: rgb(103, 168, 230);
+            }
+
+            & #count{
+                display: inline-block;
+                font-size: x-large;
+                font-weight: bolder;
+            }
+        }
+
+        & .description-enter{
+            color: var(--text-color);
+        }
+
+        & .price-enter{
+            color: var(--text-color);
+            font-weight: bolder;
+            font-size: xx-large;
+            display: flex;
+            justify-content: flex-end; 
+        }
+    }
+
+    & .left-side{
+        flex: 1;
+        
+        & .img-grade{
+            border: none;
+            height: 38em;
+            width: 459px;
+            background-color: white;
+            -webkit-box-shadow-produto: var(--webkit-box-shadow-produto) ;
+            -moz-box-shadow-produto: var(--moz-box-shadow-produto); 
+            box-shadow: var(--box-shadow-produto);
+
+            & img {
+                object-fit: contain;
+                max-height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    
+
+    & #mais, & #menos {
+        padding: 20px;
+        border: none;
+        background-color: #b1aaaa;
+        width: 3rem;
+    }
+
+    & input {
+        width: 4rem;
+        text-align: center;
+        font-size: 1.2em;
+        border: 2px solid black;
+    }
+
+    & #comprar {
+        width: 40%;
+        background-color: #F5B335;
+        border: none;
+        border-radius: 20px;
+    }
+}
+
+.footnote{
+    height: 15em;
+    width: 15em;
+}
+
+@media screen and (max-width: 700px) {
+    .produtos-site{
+        padding: 10px;
+    }
+    .sides{
+        width: 100%;
+    }
+    .img-grade{
+        width: 91vw !important;
+    }
+
+    .left-side{
+        margin-left: 1.5vw;
+    }
+}
